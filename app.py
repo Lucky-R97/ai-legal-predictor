@@ -16,5 +16,8 @@ def predict():
     pred = model.predict([text])[0]
     return jsonify({"prediction":pred})
 
-if __name__=="__main__":
-    app.run(debug=True)
+import os
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host="0.0.0.0", port=port)
